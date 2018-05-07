@@ -1,0 +1,20 @@
+def bubble_sort_pass(list2sort):
+    for i in range(list2sort.shape[0]-1):
+        if (list2sort[i] > list2sort[i+1]):
+            list2sort[i+1], list2sort[i] = list2sort[i], list2sort[i+1]
+        
+    return list2sort
+
+def bubble_sort(list2sort):
+    
+    counter = list2sort.shape[0]-1
+    sorted_list = np.array([], dtype = int)
+    while (counter > -1):
+        
+        list2sort = bubble_sort_pass(list2sort)
+        
+        sorted_list = np.append(list2sort[counter:],sorted_list)
+        list2sort = list2sort[:counter]
+        counter -= 1
+    
+    return sorted_list
